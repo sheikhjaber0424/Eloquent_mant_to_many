@@ -9,8 +9,8 @@ class Department extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function user()
+    public function student()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Student::class);
     }
 }

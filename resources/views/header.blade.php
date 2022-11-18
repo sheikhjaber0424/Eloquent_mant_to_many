@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{ route('index_1') }}">One to One</a>
                 </li>
                 <li class="nav-item ms-5">
-                    <a class="nav-link" href="#">One to Many</a>
+                    <a class="nav-link" href="{{ route('index.many') }}">One to Many</a>
                 </li>
 
 

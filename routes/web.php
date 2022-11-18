@@ -19,9 +19,19 @@ Route::get('/', function () {
 });
 
 //One to One
-Route::get('/one_to_one_index', [MainController::class, 'one_to_one_index'])->name('index_1');
+Route::get('/one_to_one_index', [MainController::class, 'one_to_one_index'])->name('index.one');
 Route::get('/create_one', [MainController::class, 'create_one'])->name('create_1');
 Route::post('/store_one', [MainController::class, 'store_one'])->name('store_1');
 Route::get('/edit_one/{student}', [MainController::class, 'edit_one'])->name('edit_1');
 Route::put('/update_one/{student}', [MainController::class, 'update_one'])->name('update_1');
 Route::get('/delete_one/{student}', [MainController::class, 'delete_one'])->name('delete_1');
+
+
+//One to Many
+Route::get('/one_to_many_index', [MainController::class, 'one_to_many_index'])->name('index.many');
+Route::get('/create_many', [MainController::class, 'create_many'])->name('create_2');
+Route::post('/store_many', [MainController::class, 'store_many'])->name('store_2');
+Route::get('/edit_many/{phone}', [MainController::class, 'edit_many'])->name('edit_2');
+Route::get('/delete_many/{student}', [MainController::class, 'delete_many'])->name('delete_2');
+Route::get('/delete_single/{phone}', [MainController::class, 'delete_single'])->name('delete_3');
+Route::put('/update_many/{phone}', [MainController::class, 'update_many'])->name('update_2');
