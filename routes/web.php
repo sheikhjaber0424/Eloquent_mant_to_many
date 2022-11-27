@@ -35,3 +35,13 @@ Route::get('/edit_many/{phone}', [MainController::class, 'edit_many'])->name('ed
 Route::get('/delete_many/{student}', [MainController::class, 'delete_many'])->name('delete_2');
 Route::get('/delete_single/{phone}', [MainController::class, 'delete_single'])->name('delete_3');
 Route::put('/update_many/{phone}', [MainController::class, 'update_many'])->name('update_2');
+
+
+//Many to many
+Route::get('/many_to_many_index', [MainController::class, 'many_to_many_index'])->name('index.manyToMany');
+Route::get('/many_to_many_create', [MainController::class, 'many_to_many_create'])->name('create_3');
+Route::post('/many_to_many_store', [MainController::class, 'many_to_many_store'])->name('store_3');
+Route::get('/many_to_many_delete/{group}', [MainController::class, 'many_to_many_delete'])->name('delete_4');
+Route::get('/many_to_many_show/{group}', [MainController::class, 'many_to_many_show'])->name('show');
+Route::get('/add_student_form/{group}', [MainController::class, 'add_student_form'])->name('addStudent.form');
+Route::post('/add_student', [MainController::class, 'add_student'])->name('addStudent');

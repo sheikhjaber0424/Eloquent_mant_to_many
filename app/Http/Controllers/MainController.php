@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Group;
 use App\Models\Phone;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -123,5 +124,66 @@ class MainController extends Controller
 
 
         return redirect('/one_to_many_index');
+    }
+
+
+
+
+
+    public function many_to_many_index()
+    {
+        $group_data = Group::all();
+        return view('manyToMany.index', compact('group_data'));
+    }
+
+
+
+    public function many_to_many_create()
+    {
+
+        return view('manyToMany.create',);
+    }
+
+
+    public function many_to_many_store(Request $request)
+    {
+
+        Group::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect('/many_to_many_index');
+    }
+
+
+
+
+    public function many_to_many_delete(Group $group)
+    {
+
+        $group->delete();
+        return redirect('/many_to_many_index');
+    }
+    public function many_to_many_show(Group $group)
+    {
+        $students = Group::with('students')->get();
+        return  $students;
+        return view('manyToMany.show', compact('group'));
+    }
+
+    public function add_student_form()
+    {
+        $students = Student::all();
+        return view('manyToMany.add_student_form', compact('students'));
+    }
+
+    public function add_student(Request $request, Group $group)
+    {
+        $valid = $request->validate([
+            'student_id' => ['required', 'integer', 'gt:0'],
+
+        ]);
+        if ($group->authors()->sync($valid['student_id'], false))
+            return redirect()->route('show', $group);
     }
 }

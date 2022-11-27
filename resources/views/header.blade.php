@@ -11,10 +11,13 @@
                     <a class="nav-link active ms-5" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item ms-5">
-                    <a class="nav-link" href="{{ route('index_1') }}">One to One</a>
+                    <a class="nav-link" href="{{ route('index.one') }}">One to One</a>
                 </li>
                 <li class="nav-item ms-5">
                     <a class="nav-link" href="{{ route('index.many') }}">One to Many</a>
+                </li>
+                <li class="nav-item ms-5">
+                    <a class="nav-link" href="{{ route('index.manyToMany') }}">Many to Many</a>
                 </li>
 
 
