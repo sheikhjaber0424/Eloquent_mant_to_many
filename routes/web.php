@@ -44,4 +44,4 @@ Route::post('/many_to_many_store', [MainController::class, 'many_to_many_store']
 Route::get('/many_to_many_delete/{group}', [MainController::class, 'many_to_many_delete'])->name('delete_4');
 Route::get('/many_to_many_show/{group}', [MainController::class, 'many_to_many_show'])->name('show');
 Route::get('/add_student_form/{group}', [MainController::class, 'add_student_form'])->name('addStudent.form');
-Route::post('/add_student', [MainController::class, 'add_student'])->name('addStudent');
+Route::post('/add_student/{group}', [MainController::class, 'add_student'])->name('addStudent');

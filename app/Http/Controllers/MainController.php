@@ -166,24 +166,23 @@ class MainController extends Controller
     }
     public function many_to_many_show(Group $group)
     {
-        $students = Group::with('students')->get();
-        return  $students;
+        // $group_details = Group::find($group)->students->get();
+        // return $group_details;
         return view('manyToMany.show', compact('group'));
     }
 
-    public function add_student_form()
+    public function add_student_form(Group $group)
     {
         $students = Student::all();
-        return view('manyToMany.add_student_form', compact('students'));
+        return view('manyToMany.add_student_form', compact('students', 'group'));
     }
 
     public function add_student(Request $request, Group $group)
     {
         $valid = $request->validate([
             'student_id' => ['required', 'integer', 'gt:0'],
-
         ]);
-        if ($group->authors()->sync($valid['student_id'], false))
-            return redirect()->route('show', $group);
+        if ($group->students()->sync($valid['student_id'], false))
+            return redirect('/many_to_many_index');
     }
 }

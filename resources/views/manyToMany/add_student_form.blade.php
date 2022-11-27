@@ -4,13 +4,13 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-8">
                 <h2>Add Student in Group</h2>
-                <form action="{{ route('addStudent') }}" method="POST">
+                <form action="{{ route('addStudent', $group) }}" method="POST">
                     @csrf
 
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Student</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select name="student_id" class="form-control" id="exampleFormControlSelect1">
                             @foreach ($students as $student)
                                 <option value="{{ $student->id }}">{{ $student->name }}</option>
                             @endforeach

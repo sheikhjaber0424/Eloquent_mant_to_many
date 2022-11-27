@@ -20,7 +20,13 @@
                             <td>{{ $group->id }}</td>
                             <td>{{ $group->name }}</td>
 
-                            <td><a href="{{ route('addStudent.form', $group) }}"><button
+                            <td>
+                                @foreach ($group->students as $student)
+                                    {{ $student->name }}
+                                @endforeach
+
+
+                                <a href="{{ route('addStudent.form', $group) }}"><button
                                         class="btn btn-primary">Add</button></a>
                             </td>
 
